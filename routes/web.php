@@ -60,6 +60,9 @@ Route::get('logout',[AdminController::class,'logout'])->name('logout');
 Route::middleware('admin')->group(function(){
     Route::resource('studium', StudiumController::class);
     Route::get('user',[UserController::class,'index'])->name('admin.user');
+    Route::get('off',[UserController::class,'off'])->name('admin.off');
+    Route::put('off/{id}',[UserController::class,'offactive'])->name('admin.active');
+    Route::delete('off/{id}',[UserController::class,'offinactive'])->name('admin.inactive');
     Route::post('user/{id}', [UserController::class, 'store'])->name('admin.store');
 
 });

@@ -20,7 +20,8 @@ class SiteController extends Controller
     }
     public function reservations()
     {
-        return view('reservations');
+        $revs = Reservation::where('status','active')->get();
+        return view('reservations',compact('revs'));
     }
     public function advantages()
     {

@@ -162,65 +162,25 @@ a:hover {
     </tr>
   </table>
   <br>
+  @foreach ($revs as $rev)
   <table class="table radius-table">
     <tr>
-        <td ><b style="margin-right: 4vh;"> ملعب النجوم </b></td>
-        <td style="text-align: left;"><b> السبت</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 15/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  22/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
+        <td ><b style="margin-right: 4vh;">{{ $rev->name }}</b></td>
+        <td style="text-align: left;"><b> {{ $rev->day }}</b></td>
+        <td class="td1" style="font-size: 1vh; text-align: left;"><b>{{ $rev->date }}</b></td>
+        <td class="td1" style="font-size: 1vh; text-align: center;"><b >{{ $rev->time }}</b></td>
     </tr>
   </table>
   <br>
-  <table class="table cost-table">
-    <tr>
-        <td ><b style="margin-right: 4vh;"> ملعب التعاون </b></td>
-        <td style="text-align: left;"><b>الاحد</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 22/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  21/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
-    </tr>
-  </table>
-  <br>
-  <table class="table foot-table">
-    <tr>
-        <td ><b style="margin-right: 5vh;"> ملعب العنان</b></td>
-        <td style="text-align: left;"><b>الاثنين</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 22/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  21/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
-    </tr>
-  </table>
-  <br>
-  <table class="table root-table">
-    <tr>
-        <td ><b style="margin-right: 5vh;"> ملعب الاتحاد </b></td>
-        <td style="text-align: left;"><b>الثلاثاء</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 22/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  21/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
-    </tr>
-  </table>
-  <br>
-  <table class="table check-table">
-    <tr>
-        <td ><b style="margin-right: 4vh;"> ملعب البلدي </b></td>
-        <td style="text-align: left;"><b>الاربعاء</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 22/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  21/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
-    </tr>
-  </table>
-  <br>
-  <table class="table heer-table">
-    <tr>
-        <td ><b style="margin-right: 4vh;"> ملعب الجنوب </b></td>
-        <td style="text-align: left;"><b>الخميس</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: left;"><b >1/2/2023 &nbsp;&nbsp; 22/2/2023 <br><br> 8/2/2023 &nbsp;&nbsp;  21/2/2023</b></td>
-        <td class="td1" style="font-size: 1vh; text-align: center;"><b > 8:15&nbsp; pm &nbsp;&nbsp; 10:30&nbsp; am <br><br>7:30 &nbsp; am &nbsp;&nbsp; 10:15&nbsp; am </b></td>
-    </tr>
-  </table>
+
+  @endforeach
+
   <div class="col-md-6"><br>
     <b><i><input type="submit" onclick="goToPage2()" value="الحجز" style="width: 20vh; border-radius: 1vh; height: 6vh;" class="btn btn-success"></i></b>
     </div>  <br><br>
     <script>
 			function goToPage2() {
-			  window.location.href = "change.html";
+			  window.location.href = "{{ route('photo') }} ";
 			}
 		  </script>
 
