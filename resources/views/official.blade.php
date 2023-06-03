@@ -3,7 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> صفحة عرض جميع الحجوزات للملعب   </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 <style>
     body {
       display:block;
@@ -139,7 +140,7 @@ a:hover {
           <b><a class="nav-link" href="{{ route('reservations') }}">مواعيد الملاعب</a></b>
         </li>
         <li class="nav-item" style="padding: 4px;">
-            <b>   <a class="nav-link" href="{{ route('dashboard') }}">تسجيل الدخول</a></b>
+            <b>   <a class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name ?? 'تسجيل الدخول'}}</a></b>
           </li>
       </ul>
        <a class="navbar-brand" href="#">
