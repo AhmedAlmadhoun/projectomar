@@ -91,9 +91,10 @@
                     <div class="col-6">
 
                         <div class="form-group">
-                            <label for="text-input"> موعد الحجز : </label>
-                            <input name="time" type="time" class="form-control" placeholder=" موعد الحجز " >
-                        </div><br>
+                            <label for="text-input">موعد الحجز:</label>
+                            <input name="time" type="time" class="form-control" placeholder="موعد الحجز" onchange="validateTime(this)">
+                        </div>
+                        <span id="time-error" style="color: red;"></span><br>
                         <div class="form-group">
                             <label for="text-input"> اختر اليوم : </label>
                             <select class="form-control" name="day">
@@ -107,9 +108,10 @@
                             </select>
                         </div><br>
                         <div class="form-group">
-                            <label for="text-input" style="width: 11vh;"> تاريخ الحجز: </label>
-                            <input name="date" type="date" class="form-control" placeholder="تاريخ الحجز">
+                            <label for="text-input" style="width: 11vh;">تاريخ الحجز:</label>
+                            <input name="date" type="date" class="form-control" placeholder="تاريخ الحجز" min="">
                         </div><br>
+
                         <div class="form-group">
                             <label for="text-input"> اسم الشخص : </label>
                             <input name="name" type="text" id="text-input" class="form-control"
@@ -125,5 +127,33 @@
     </section>
 
 </body>
+<script>
+    // الحصول على تاريخ اليوم الحالي
+    var currentDate = new Date();
 
+    // زيادة اليوم بمقدار واحد للحصول على التاريخ التالي
+    currentDate.setDate(currentDate.getDate() + 1);
+
+    // تحويل التاريخ التالي إلى سلسلة نصية بتنسيق "YYYY-MM-DD"
+    var formattedDate = currentDate.toISOString().split('T')[0];
+
+    // الحصول على عنصر الإدخال "date"
+    var dateInput = document.getElementsByName('date')[0];
+
+    // تعيين قيمة الحقل "min" لعنصر الإدخال "date" إلى التاريخ التالي
+    dateInput.min = formattedDate;
+</script>
+<script>
+    function validateTime(input) {
+        var selectedTime = input.value;
+        var selectedHour = parseInt(selectedTime.split(':')[0]);
+
+        if (selectedHour < 8 || selectedHour >= 22) {
+            document.getElementById('time-error').textContent = 'يجب أن يكون الحجز بين الساعة 8 صباحًا و 10 مساءً.';
+            input.value = ''; // إزالة القيمة غير الصحيحة
+        } else {
+            document.getElementById('time-error').textContent = '';
+        }
+    }
+</script>
 </html>

@@ -98,7 +98,7 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <input type="hidden" name="type" id="type" value="official">
+            {{-- <input type="hidden" name="type" id="type" value="user"> --}}
             <div class="row">
               <div class="col-md-12">
                 <br>
